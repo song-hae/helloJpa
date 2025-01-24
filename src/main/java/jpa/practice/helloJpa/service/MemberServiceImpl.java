@@ -1,6 +1,8 @@
-package jpa.practice.helloJpa;
+package jpa.practice.helloJpa.service;
 
 import jakarta.transaction.Transactional;
+import jpa.practice.helloJpa.domain.member.MemberRepository;
+import jpa.practice.helloJpa.domain.member.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +20,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public Member findMember(String id) {
+    public Member findMember(Long id) {
         return memberRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 Id"));
     }
